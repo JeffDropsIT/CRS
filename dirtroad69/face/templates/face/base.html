@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Smart Farm{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'face/style.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- header-->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#TopNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'face:index' %}">SmartFarm</a>
+        </div>
+
+         <!-- Items -->
+        <div class="collapse navbar-collapse" id="TopNavBar">
+                <ul class="nav navbar-nav">
+                    <li class="{% block cattle_active %} {% endblock %}">
+                        <a href="{% url 'face:index' %}">
+                        <span class="" aria-hidden="true"></span>&nbsp;All Cattle
+                    </a>
+                      <li class="{% block classify_active %} {% endblock %}">
+                        <a href="{% url 'face:classify' %}">
+                        <span class="" aria-hidden="true"></span>&nbsp;Classify Cattle
+                    </a>
+                    </li>
+                </ul>
+
+            <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'face:index' %}">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="q" value="{{ request.GET.q }}">
+                    <div class="input-group-btn">
+						<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+				    </div>
+				</div>
+                <!-- <button type="submit" class="btn btn-default">Search</button> -->
+            </form>
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="{% block retrain_active %}{% endblock %}">
+                    <a href="{% url 'face:retrain' %}">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp; Retrain
+                    </a>
+                    </li>
+                    <li>
+                    <a href="{% url 'face:logout_user' %}">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout
+                    </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ pk }}/admin/face/cattlelog/add/">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Log
+                    </a>
+                      <li class="">
+                        <a href="/admin/">
+                        <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>Admin
+                    </a>
+                    </li>
+                </ul>
+        </div>
+
+
+
+    </div>
+</nav>
+
+{% block body %}
+{% endblock %}
+</body>
+</html>

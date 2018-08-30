@@ -1,0 +1,16 @@
+body {
+    background: white url("images/background.png");
+}
+.navbar{
+    border-radius: 0;
+}
+.navbar-brand{
+    font-family: 'Satisfy', cursive;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+ul.errorlist > li {
+    list-style: none;
+}

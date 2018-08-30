@@ -1,0 +1,131 @@
+{% extends 'face/base.html' %}
+{% block title %}Cow Detail{% endblock %}
+
+
+{% block body %}
+    <div class="container-fluid songs-container">
+
+    <div class="row">
+
+        <!-- Left Album Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{% url 'face:detail' cow.id %}">
+                        {% if cow.cow_img %}
+                            <img src="{{ cow.cow_img.url }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ cow.name }} <small>{{ cow.gender }}</small></h1>
+                    <h1>Breed: {{ cow.breed }}</h1>
+                    {% if error_message %}<h3> <small>{{error_message}} </small></h3> {% endif %}
+                    <img src="{{ img.classify_img.url }}" class="img-responsive">
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Song Info -->
+        <div class="col-sm-8 col-md-9">
+
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" class="active"><a href="{% url 'face:index'%}">View All</a></li>
+                <li role="presentation"><a href="{{ pk }}/admin/face/cattlelog/add/">Add New Log</a></li>
+            </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>All Logs</h3>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Log Date</th>
+                            <th>Lactate Status</th>
+                            <th>condition score</th>
+                            <th>feeding scheme</th>
+                            <th>injection type</th>
+                            <th>weight</th>
+                            <th>injection Last Date</th>
+                            <th>insemination date</th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for log in cow.cattlelog_set.all %}
+                            <tr>
+                                <td>{{ log.log }}</td>
+                                <td>
+                                   <p>{{ log.lactating }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ log.condition_score }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ log.feeding_scheme }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ log.injection_type }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ log.weight }} kg</p>
+                                </td>
+                                <td>
+                                    <p>{{ log.injection_Last_Date }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ log.insemination_date }}</p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            {% if error_message %}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2 >Model Comparison</h2>
+                  <p >Click on the button to toggle between showing and hiding Model Comparison results.</p>
+                  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">See results</button>
+
+                  <div id="demo" class="collapse">
+                        <div class="col-sm-20 col-md-9">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <h3>What is Model Comparison?</h3>
+                                        <p>Model Comparison is a functionality that allows you to evaluate the performance of a different Algorithm in the livestock recognition system.</p>
+                                        <h3>How does it work?</h3>
+                                        <p>A different Algorithms is used to classify the image that you upload namely Decision Tree analysis. The accuracy and the image of the predicted cow is returned for the algorithm.</p>
+                                        <h3>The Model Comparison test Results!</h3>
+                                        <p>            Decision tree</p>
+                                    <ul>
+                                        <li><H4>Accuracy: {{ acc }}</H4></li>
+                                        <li><H4>Evaluation Time : {{ time_taken }}</H4></li>
+                                        <li><h4>Image Prediction</h4><img src="{{ item.cow_img.url }}" style="max-height: 100px; max-width: 100px;" class="img-responsive"></li>
+                                    </ul>
+                                    </div>
+                                </div>
+                        </div>
+                  </div>
+
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

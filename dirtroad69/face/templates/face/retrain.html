@@ -1,0 +1,37 @@
+{% extends 'face/base.html' %}
+{% block title %}Retrain{% endblock %}
+{% block retrain_active %}active{% endblock %}
+
+
+{% block body %}
+
+<div class="container-fluid songs-container">
+
+
+        <!-- Left Album Info -->
+         <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" class="active"><a href="{% url 'face:index'%}">View All</a></li>
+                <li role="presentation" ><a href="/admin/face/cattle_retrain/add/">Retrain Now</a></li>
+            </ul>
+        <div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>What is to retrain?</h3>
+                    <p>Retraining is a functionality that allows you to upload cattle videos on the cloud to aid in keeping your livestock recognition system updated.</p>
+                    <h3>How does It Retrain?</h3>
+                    <p>First, create four new videos by taking 20 second clips of each cow on your farm preferably on different lighting conditions . Once the videos are created you will be able to add/upload them.</p>
+                    <h3>What are some retraining best practices?</h3>
+                    <ul>
+                        <li>Have a resolution of 780x780</li>
+                        <li>Use common video format such as .MP4 only</li>
+                        <li>Remain under the 5MB limit.</li>
+                        <li>upright video angles look best</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+</div>
+
+{% endblock %}

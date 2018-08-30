@@ -1,0 +1,58 @@
+{% extends 'face/base.html' %}
+{% block title %}Get Cattle Information{% endblock %}
+{% block classify_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <!-- Left Album Info -->
+        <div class="col-sm-12 col-md-37">
+            <div class="panel panel-default">
+                <div class="col-lg-6 col-centered">
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'face/form-template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+           <div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>What is to classify?</h3>
+                    <p>Classifying is a functionality that allows you to upload an image using your mobile device to the cloud, with the aim to aid in determining the identity of your of livestock using Computer vision .</p>
+                    <h3>How do I Classify?</h3>
+                    <p>Firstly, upload an image by taking a photo of the livestock you wish to identify preferably in a distance no farther than one meter. Once the photo has been taken you will be able to add/upload them by pressing submit.</p>
+                    <h3>What are some classifying best practices?</h3>
+                    <ul>
+                        <li>Have a resolution of 512x512</li>
+                        <li>Use common image format such as .JPG only</li>
+                        <li>Remain under the 2MB limit.</li>
+                        <li>Portrait view images work best</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

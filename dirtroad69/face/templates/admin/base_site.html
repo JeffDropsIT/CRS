@@ -1,0 +1,25 @@
+{% extends "admin/base.html" %}
+{% load staticfiles %}
+{% block title %}{{ title }} | Smart Farm{% endblock %}
+{% block extrastyle %}
+<style>
+
+    #header{
+    color: white;
+    background-color: #101010;
+}
+</style>
+{% endblock %}
+
+ <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+
+
+{% block branding %}
+
+
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Smart Farm Administrator</a> <a href="{% url 'face:index' %}" class="btn btn-primary btn-sm" role="button">|   Home</a> </h1>
+
+
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

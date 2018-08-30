@@ -1,0 +1,2 @@
+model_checkpoint_path: "C:/final_model/inception.cpkl"
+all_model_checkpoint_paths: "C:/final_model/inception.cpkl"

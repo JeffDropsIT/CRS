@@ -1,0 +1,44 @@
+{% extends 'face/base.html' %}
+{% block cattle_active %}active{% endblock %}
+
+{% block body %}
+<div class="albums-container container-fluid">
+
+    <!-- Cattle -->
+       <div class="row">
+
+        {% if all_cows %}
+           <div class="col-sm-12">
+            <h3 style="color:#FFF">Cattle Collection</h3>
+        </div>
+            {% for cow in all_cows %}
+                <div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+                        <a href="{% url 'face:detail' cow.id %}">
+                            <img src="{{ cow.cow_img.url }}" class="img-responsive">
+                        </a>
+                        <div class="caption">
+                            <h2>{{ cow.name }}</h2>
+                            <h4>{{ cow.gender }}</h4>
+
+                            <!-- View Details -->
+                            <a href="{% url 'face:detail' cow.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+
+                            <!-- Delete Cow -->
+
+
+                        </div>
+                    </div>
+                </div>
+           {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+            {% endfor %}
+
+           {%else%}
+
+                       <div class="col-lg-4 col-centered">
+                        <h3 style="color:#FFF;">There are no cattle matching your query <a href="{% url 'face:index' %}" >View All</a></h3>
+                    </div>
+           {% endif %}
+       </div>
+</div>
+{% endblock %}
