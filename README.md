@@ -21,8 +21,10 @@ and provide insufficient accuracy.
 This work attempts to resolve the cattle identification problem using the most robust and fast image recognition techniques based on machine learning. Preliminary results show that it is possible to tackle the time challenge offered by tradition recognition systems. It is also possible for farmer whom are less familiar with the livestock to use a mobile device that has a camera with a reasonable resolution (3-8mega pixels) to classify each cattle with an accuracy of 90% for better management. All the particular cow’s information is available to the farmer on hand. This technology is crucial to small farmers and to commercial farmers, it makes easier for them to better adapt to new farming techniques.
 This study will produce a machine learning based cattle recognition system. After the development of the system a user interface will be developed for farmers so that farmers are able to use the system in real-time. The table 1 below shows all the advantages and disadvantages of the traditional cattle identification methods.
 
+Tools: Django, Python(TensorFlow and other libraries see link below), SQLite, HTML & CSS Bootstrap, javascript.
+
 The full documentation can be found here: 
-[a link] (https://docs.google.com/document/d/1izhiW0JXB8Mzy2CGyXzSeLstlGhZYvQqkLDIkRqG5zU/edit?usp=sharing)
+https://docs.google.com/document/d/1izhiW0JXB8Mzy2CGyXzSeLstlGhZYvQqkLDIkRqG5zU/edit?usp=sharing
 
 
 
